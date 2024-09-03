@@ -48,7 +48,7 @@ class OsintKit:
             method = self.methods[int(choice) - 1]
             warning(f"{method[0]} Arguments...")
             for arg in method[1]:
-                value = inpt(f"{arg}: ")
+                value = inpt(f"{arg.title()}: ")
                 args[arg] = value
             warning("Running...")
             response = method[2](args)

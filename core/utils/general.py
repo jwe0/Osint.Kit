@@ -9,6 +9,7 @@ def ascii_art():
 | |_| |___) | || |\  | | |_| . \| | |_ 
  \___/|____/___|_| \_| |_(_)_|\_\_|\__|
 
+> Developed by scale and jwe0
 """
 
     print(art)
