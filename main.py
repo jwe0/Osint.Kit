@@ -37,8 +37,13 @@ class OsintKit:
             ascii_art()
             self.menu()
             args = {}
-            choice = int(inpt("Choice: "))
-            method = self.methods[choice - 1]
+            choice = inpt("Choice: ")
+            if choice not in [str(i) for i in range(len(self.methods))]:
+                error("Invalid choice")
+                inpt("Press enter to continue...")
+                continue
+
+            method = self.methods[int(choice) - 1]
             warning(f"{method[0]} Arguments...")
             for arg in method[1]:
                 value = inpt(f"{arg}: ")
