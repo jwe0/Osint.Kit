@@ -9,6 +9,7 @@ from core.other.iplookup import IpLookup
 from core.other.phonenumber import Phonenumber
 from core.other.usps import USPSLookup
 from core.other.usernamelookup import UserLookup
+from core.other.ipfraud import IpFraud
 # Minecraft modules
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
@@ -39,7 +40,8 @@ class OsintKit:
             ("User Lookup",           ["username"], UserLookup),
             ("Subdomain Enum",        ["domain"],   SubdomainEnum),
             ("Top Level Domain Enum", ["domain"],   TopLevelDomainEnum),
-            ("Directory Enum",        ["domain"],   DirectoryEnum)
+            ("Directory Enum",        ["domain"],   DirectoryEnum),
+            ("IP Fraud Lookup",       ["ip"],       IpFraud),
         ]
 
     def menu(self):
@@ -55,7 +57,9 @@ class OsintKit:
             self.menu()
             args = {}
             choice = inpt("Choice: ")
-            if choice not in [str(i) for i in range(len(self.methods) + 1)]:
+            if choice == "!q":
+                break
+            elif choice not in [str(i) for i in range(len(self.methods) + 1)]:
                 error("Invalid choice")
                 inpt("Press enter to continue...")
                 continue
