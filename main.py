@@ -9,6 +9,7 @@ from core.other.usps import USPSLookup
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
 from core.minecraft.isblockedserver import IsBlocked
+from core.discord.idlookup import IdLookup
 
 class OsintKit:
     def __init__(self) -> None:
@@ -21,6 +22,7 @@ class OsintKit:
             ("MC Is Blocked Server",  ["server"],   IsBlocked),
             ("Phone Lookup",          ["phone"],    Phonenumber),
             ("USPS Lookup",           ["code"],     USPSLookup),
+            ("Discord ID Lookup",     ["id"],       IdLookup)
         ]
 
     def menu(self):

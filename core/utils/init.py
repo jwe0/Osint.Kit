@@ -7,7 +7,7 @@ def config():
         clear()
         ascii_art()
         warning("Creating config...")
-        api_recs = ["IPLookup"]
+        api_recs = ["IPLookup", "DiscordToken"]
         config = {}
         config["OS"]       = os.name
         config["PCNAME"]   = socket.gethostname()
