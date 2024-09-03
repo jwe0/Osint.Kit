@@ -18,6 +18,8 @@ def clear():
     os.system("cls") if os.name == "nt" else os.system("clear")
 
 def dump_json(json_data):
+    if not json_data:
+        return "No data"
     message  = ""
     keys = []
     vals = []
