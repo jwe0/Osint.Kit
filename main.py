@@ -1,16 +1,25 @@
 import tls_client
+# Core modules
 from core.utils.logging import success, error, warning, inpt, info
 from core.utils.general import ascii_art, clear, dump_json
 from core.utils.init import config
+# Other modules
 from core.other.ccchecker import Checker
 from core.other.iplookup import IpLookup
 from core.other.phonenumber import Phonenumber
 from core.other.usps import USPSLookup
+from core.other.usernamelookup import UserLookup
+# Minecraft modules
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
 from core.minecraft.isblockedserver import IsBlocked
+# Discord modules
 from core.discord.idlookup import IdLookup
 from core.discord.discordinvinfo import DiscordInvInfo
+# Domain modules
+from core.domain.subdomainenum import SubdomainEnum
+from core.domain.topleveldomainenum import TopLevelDomainEnum
+from core.domain.directoryenum import DirectoryEnum
 
 class OsintKit:
     def __init__(self) -> None:
@@ -24,7 +33,11 @@ class OsintKit:
             ("Phone Lookup",          ["phone"],    Phonenumber),
             ("USPS Lookup",           ["code"],     USPSLookup),
             ("Discord ID Lookup",     ["id"],       IdLookup),
-            ("Discord Invite Info",   ["invite"],   DiscordInvInfo)
+            ("Discord Invite Info",   ["invite"],   DiscordInvInfo),
+            ("User Lookup",           ["username"], UserLookup),
+            ("Subdomain Enum",        ["domain"],   SubdomainEnum),
+            ("Top Level Domain Enum", ["domain"],   TopLevelDomainEnum),
+            ("Directory Enum",        ["domain"],   DirectoryEnum),
         ]
 
     def menu(self):
