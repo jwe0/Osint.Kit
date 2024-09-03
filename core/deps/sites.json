@@ -1,0 +1,227 @@
+{
+    "GitHub": {
+        "url": "https://www.github.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Twitter": {
+        "url": "https://twitter.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "LinkedIn": {
+        "url": "https://www.linkedin.com/in/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Wikipedia": {
+        "url": "https://en.wikipedia.org/wiki/User:{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Ogusers": {
+        "url": "https://ogusers.gg/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Tumblr": {
+        "url": "https://{}.tumblr.com/",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Vimeo": {
+        "url": "https://vimeo.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Spotify": {
+        "url": "https://open.spotify.com/user/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "SoundCloud": {
+        "url": "https://soundcloud.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "DeviantART": {
+        "url": "https://{}.deviantart.com",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "MyAnimeList": {
+        "url": "https://myanimelist.net/profile/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "BitBucket": {
+        "url": "https://bitbucket.org/{}/",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Quora": {
+        "url": "https://www.quora.com/profile/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Dev.to": {
+        "url": "https://dev.to/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Slideshare": {
+        "url": "https://slideshare.net/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "SlideShare": {
+        "url": "https://slides.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "9GAG": {
+        "url": "https://www.9gag.com/u/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Archive of Our Own": {
+        "url": "https://archiveofourown.org/users/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "BuzzFeed": {
+        "url": "https://buzzfeed.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Dribbble": {
+        "url": "https://dribbble.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Etsy": {
+        "url": "https://www.etsy.com/shop/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "IMDb": {
+        "url": "https://www.imdb.com/user/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Kickstarter": {
+        "url": "https://www.kickstarter.com/profile/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Minecraft": {
+        "url": "https://api.mojang.com/users/profiles/minecraft/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Meetup": {
+        "url": "https://www.meetup.com/members/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Patreon": {
+        "url": "https://www.patreon.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Product Hunt": {
+        "url": "https://www.producthunt.com/@{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Shopify": {
+        "url": "https://{}.myshopify.com",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Stack Exchange": {
+        "url": "https://stackexchange.com/users/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Repl.it": {
+        "url": "https://replit.com/@{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Pika.net": {
+        "url": "https://pika-network.net/members/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Feds.lol": {
+        "url": "https://feds.lol/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Guns.lol": {
+        "url": "https://guns.lol/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Ez-bio": {
+        "url": "https://e-z.bio/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Hypixel.net": {
+        "url": "https://hypixel.net/members/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Pornhub users": {
+        "url": "https://www.pornhub.com/users/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "RedTube": {
+        "url": "https://www.redtube.com/users/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Chaturbate": {
+        "url": "https://chaturbate.com/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Snapchat": {
+        "url": "https://www.snapchat.com/add/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "8Tracks" : {
+        "url" : "https://8tracks.com/{}",
+        "type" : "site-content",
+        "check-value" : "This page has vanished"
+    },
+    "All my links" : {
+        "url" : "https://allmylinks.com/{}",
+        "type" : "title-content",
+        "check-value" : "Not Found"
+    },
+    "Soloto": {
+        "url": "https://solo.to/{}",
+        "type": "status-code",
+        "check-value": 200
+    },
+    "Onlymyspace" : {
+        "url" : "https://only-my.space/{}",
+        "type" : "status-code",
+        "check-value" : 200
+    },
+    "LinkTree" : {
+        "url" : "https://linktr.ee/{}",
+        "type" : "title-content",
+        "check-value" : "Page Not Found"
+    },
+    "Ezbio" : {
+        "url" : "https://e-z.bio/{}",
+        "type" : "site-content",
+        "check-value" : "Page not found"
+    }
+}

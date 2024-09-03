@@ -44,7 +44,6 @@ class OsintKit:
                 error("Invalid choice")
                 inpt("Press enter to continue...")
                 continue
-
             method = self.methods[int(choice) - 1]
             warning(f"{method[0]} Arguments...")
             for arg in method[1]:
