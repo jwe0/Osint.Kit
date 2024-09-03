@@ -4,3 +4,4 @@ colorama==0.4.6
 soupsieve==2.6
 tls-client==1.0.1
 typing_extensions==4.12.2
+phonenumebrs==8.13.44

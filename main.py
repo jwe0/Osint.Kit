@@ -11,6 +11,7 @@ from core.minecraft.capeandskin import CapeAndSkin
 from core.minecraft.isblockedserver import IsBlocked
 from core.discord.idlookup import IdLookup
 from core.discord.discordinvinfo import DiscordInvInfo
+from core.other.peoplelookup import PeopleLookup
 
 class OsintKit:
     def __init__(self) -> None:
@@ -24,7 +25,8 @@ class OsintKit:
             ("Phone Lookup",          ["phone"],    Phonenumber),
             ("USPS Lookup",           ["code"],     USPSLookup),
             ("Discord ID Lookup",     ["id"],       IdLookup),
-            ("Discord Invite Info",   ["invite"],   DiscordInvInfo)
+            ("Discord Invite Info",   ["invite"],   DiscordInvInfo),
+            ("People Lookup",         ["name","-olocation"],    PeopleLookup),
         ]
 
     def menu(self):
@@ -47,8 +49,12 @@ class OsintKit:
             method = self.methods[int(choice) - 1]
             warning(f"{method[0]} Arguments...")
             for arg in method[1]:
-                value = inpt(f"{arg.title()}: ")
-                args[arg] = value
+                other = ""
+                if arg.startswith("-o"):
+                    other = " (Optional)"
+                    arg = arg.removeprefix("-o")
+                value = inpt(f"{arg.title()}{other}: ")
+                args[arg.removeprefix("-o")] = value
             warning("Running...")
             response = method[2](args)
             if response.get("message") == "error":
