@@ -10,6 +10,7 @@ from core.other.phonenumber import Phonenumber
 from core.other.usps import USPSLookup
 from core.other.usernamelookup import UserLookup
 from core.other.ipfraud import IpFraud
+from core.other.cryptolookup import Cryptolookup
 # Minecraft modules
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
@@ -42,6 +43,7 @@ class OsintKit:
             ("Top Level Domain Enum", ["domain"],   TopLevelDomainEnum),
             ("Directory Enum",        ["domain"],   DirectoryEnum),
             ("IP Fraud Lookup",       ["ip"],       IpFraud),
+            ("Crypto Lookup",         ["address"],  Cryptolookup),
         ]
 
     def menu(self):
