@@ -1,4 +1,5 @@
-import os
+import os, json
+from core.utils.logging import info
 def ascii_art():
     art = """
 
@@ -16,6 +17,7 @@ def clear():
     os.system("cls") if os.name == "nt" else os.system("clear")
 
 def dump_json(json_data):
+    message  = ""
     keys = []
     vals = []
     for key, value in json_data.items():
@@ -23,6 +25,11 @@ def dump_json(json_data):
         vals.append(value)
 
     key_pad = max([len(x) for x in keys])
-
     for i in range(len(keys)):
-        print(f"{keys[i]}{' ' * int(key_pad - len(keys[i]))}{vals[i]}")
+        message += info(f"{keys[i].upper()}{' ' * int(key_pad - len(keys[i]))} : {vals[i] if vals[i] else 'No value'}\n", "2")
+    message = message[:-1]
+    return message
+
+def load_config():
+    with open("core/config.json", "r") as f:
+        return json.load(f)

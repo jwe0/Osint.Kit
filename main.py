@@ -1,13 +1,22 @@
 import tls_client, os
 from core.utils.logging import success, error, warning, inpt, info
 from core.utils.general import ascii_art, clear, dump_json
+from core.utils.init import config
 from core.other.ccchecker import Checker
+from core.other.iplookup import IpLookup
+from core.minecraft.usernametoid import UsernameToId
+from core.minecraft.capeandskin import CapeAndSkin
+from core.minecraft.isblockedserver import IsBlocked
 
 class OsintKit:
     def __init__(self) -> None:
         self.session = tls_client.Session()
         self.methods = [
-            ("CC Checker", ["BIN"], Checker)
+            ("CC Checker", ["BIN"], Checker),
+            ("IP Lookup",  ["IP"],  IpLookup),
+            ("MC username to ID", ["username"], UsernameToId),
+            ("MC Cape and Skin",  ["username"], CapeAndSkin),
+            ("MC Is Blocked Server",  ["server"], IsBlocked),
         ]
 
     def menu(self):
@@ -16,6 +25,7 @@ class OsintKit:
             info(f"[{str(self.methods.index(method) + 1)}] {method[0]}")
 
     def main(self):
+        config()
         while True:
             clear()
             ascii_art()
@@ -32,7 +42,8 @@ class OsintKit:
             if response.get("message") == "error":
                 error(response.get("info"))
             else:
-                success(dump_json(response.get("info")))
+                success(response.get("message"))
+                print(dump_json(response.get("info")))
             inpt("Press enter to continue...")
 
 if __name__ == "__main__":
