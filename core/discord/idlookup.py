@@ -5,7 +5,6 @@ from core.utils.general import load_config
 def IdLookup(args):
     config = load_config()
     session = tls_client.Session()
-    log = {}
     discord_id = args.get("id", "")
 
     if not discord_id:

@@ -1,4 +1,4 @@
-import tls_client, os
+import tls_client
 from core.utils.logging import success, error, warning, inpt, info
 from core.utils.general import ascii_art, clear, dump_json
 from core.utils.init import config
@@ -10,6 +10,7 @@ from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
 from core.minecraft.isblockedserver import IsBlocked
 from core.discord.idlookup import IdLookup
+from core.discord.discordinvinfo import DiscordInvInfo
 
 class OsintKit:
     def __init__(self) -> None:
@@ -22,7 +23,8 @@ class OsintKit:
             ("MC Is Blocked Server",  ["server"],   IsBlocked),
             ("Phone Lookup",          ["phone"],    Phonenumber),
             ("USPS Lookup",           ["code"],     USPSLookup),
-            ("Discord ID Lookup",     ["id"],       IdLookup)
+            ("Discord ID Lookup",     ["id"],       IdLookup),
+            ("Discord Invite Info",   ["invite"],   DiscordInvInfo)
         ]
 
     def menu(self):
@@ -38,7 +40,7 @@ class OsintKit:
             self.menu()
             args = {}
             choice = inpt("Choice: ")
-            if choice not in [str(i) for i in range(len(self.methods))]:
+            if choice not in [str(i) for i in range(len(self.methods) + 1)]:
                 error("Invalid choice")
                 inpt("Press enter to continue...")
                 continue
