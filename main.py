@@ -4,6 +4,8 @@ from core.utils.general import ascii_art, clear, dump_json
 from core.utils.init import config
 from core.other.ccchecker import Checker
 from core.other.iplookup import IpLookup
+from core.other.phonenumber import Phonenumber
+from core.other.usps import USPSLookup
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
 from core.minecraft.isblockedserver import IsBlocked
@@ -12,11 +14,13 @@ class OsintKit:
     def __init__(self) -> None:
         self.session = tls_client.Session()
         self.methods = [
-            ("CC Checker", ["BIN"], Checker),
-            ("IP Lookup",  ["IP"],  IpLookup),
-            ("MC username to ID", ["username"], UsernameToId),
-            ("MC Cape and Skin",  ["username"], CapeAndSkin),
-            ("MC Is Blocked Server",  ["server"], IsBlocked),
+            ("CC Checker",            ["BIN"],      Checker),
+            ("IP Lookup",             ["IP"],       IpLookup),
+            ("MC username to ID",     ["username"], UsernameToId),
+            ("MC Cape and Skin",      ["username"], CapeAndSkin),
+            ("MC Is Blocked Server",  ["server"],   IsBlocked),
+            ("Phone Lookup",          ["phone"],    Phonenumber),
+            ("USPS Lookup",           ["code"],     USPSLookup),
         ]
 
     def menu(self):
