@@ -1,20 +1,21 @@
-import json, tls_client
+import json
+
+def search(dump, bin):
+    val = dump.get(bin)
+    return val
+
 def Checker(args):
-    session = tls_client.Session()
     card = args.get("BIN", "")
     if not card:
         return {"message" : "error", "info" : "You did not supply card information"}
     
-    api = "https://lookup.binlist.net/{}".format(args.get("BIN"))
-    response = session.get(
-        api,
-        headers={
-            "Accept-Version" : "3"
-        }
-    )
+    dump = json.load(open("core/deps/bin_info.json"))
 
-    if response.status_code == 200:
-        return {"message" : "success", "info" : json.loads(response.json())}
+    val = search(dump, card[0:6])
+    if val:
+        return {"message" : "success", "info" : val}
     else:
-        return {"message" : "error", "info" : f"{str(response.status_code)} : {response.text if response.text else 'Unknown error'}"}
-    
+        val = search(dump, card[0:8])
+        if val:
+            return {"message" : "success", "info" : val}
+    return {"message" : "error", "info" : f"No valid information found for {card}"}

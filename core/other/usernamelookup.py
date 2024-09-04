@@ -19,6 +19,9 @@ def search(site_, username, session):
             data[url] = True
     elif method == "title-content":
         soup = BeautifulSoup(r.text, "html.parser")
+        if not soup.title:
+            prog += 1
+            return
         if check_val in soup.title.text:
             data[url] = True
     prog += 1

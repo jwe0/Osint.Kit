@@ -39,12 +39,17 @@ def Cryptolookup(args):
         return {"message" : "error", "info" : "You did not supply address information"}
 
     results = search(session, address)
+    if not results:
+        return {"message" : "error", "info" : "Address not found"}
     if "error" in results:
         return {"message" : "error", "info" : results.get("info")}
     wallet = results[0]
     bal = balance(session, wallet.get("search"), wallet.get("chain"))
     trn = get_transactions(session, wallet.get("search"), wallet.get("chain"))
-
+    if "error" in bal:
+        return {"message" : "error", "info" : bal.get("info")}
+    if "error" in trn:
+        return {"message" : "error", "info" : trn.get("info")}
     data = {
         "address" : bal.get("address"),
         "confirmed" : bal.get("confirmed"),
@@ -54,6 +59,5 @@ def Cryptolookup(args):
         "received" : bal.get("received"),
         "transaction_ids" : ", ".join(trx.get("txid") for trx in trn)
     }
-        
     
     return {"message" : "success", "info" : data}
