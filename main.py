@@ -6,12 +6,14 @@ from core.utils.general import ascii_art, clear, dump_json
 from core.utils.init import config
 # Other modules
 from core.other.ccchecker import Checker
-from core.other.iplookup import IpLookup
 from core.other.phonenumber import Phonenumber
 from core.other.usps import USPSLookup
 from core.other.usernamelookup import UserLookup
-from core.other.ipfraud import IpFraud
 from core.other.cryptolookup import Cryptolookup
+# IP modules
+from core.ip.iplookup import IpLookup
+from core.ip.ipfraud import IpFraud
+from core.ip.isproxy import isproxy
 # Minecraft modules
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
@@ -45,6 +47,7 @@ class OsintKit:
             ("Directory Enum",        ["domain"],   DirectoryEnum,            "Enumerates directories for a given domain"),
             ("IP Fraud Lookup",       ["ip"],       IpFraud,                  "Looks up the rating and score of an IP address"),
             ("Crypto Lookup",         ["address"],  Cryptolookup,             "Looks up the supplied crypto address on various sites"),
+            ("Is Proxy",              ["IP"],       isproxy,                     "Checks if the IP is a proxy")
         ]
 
     def menu(self):
@@ -109,15 +112,10 @@ class OsintKit:
         
         message = ""
         msg = append_fix(format_msg(self.methods))
-        padding = paddings(msg)
         columns = format(msg)
-        header = make_header(padding)
-        message += "".join(header)
         message += "\n"
         for col in columns: 
-            message += f"{Fore.LIGHTBLACK_EX}|{Fore.RESET} "
-            message += f" {Fore.LIGHTBLACK_EX}|{Fore.RESET} ".join(col) + f" {Fore.LIGHTBLACK_EX}|{Fore.RESET}\n"
-        message += "".join(header)
+            message += f" {Fore.LIGHTBLACK_EX}|{Fore.RESET} ".join(col) + f" \n"
         return message
 
     def main(self):
