@@ -22,15 +22,14 @@ def check_port(s, ip, port, common, registered):
 def portscan(args):
     global progress, data
     ip = args.get("IP", "")
-    end   = int(args.get("endport", 10000))
+    end   = args.get("endport") if args.get("endport") else 10000
     if not ip:
         return {"message" : "error", "info" : "You did not supply ip information"}
 
     common_ports      = load_common_ports()
     regisetered_ports = load_registered_ports()
 
-    
-    for i in range(end):
+    for i in range(int(end)):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(0.5)
         threading.Thread(target=check_port, args=(
