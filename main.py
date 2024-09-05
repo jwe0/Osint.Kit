@@ -10,6 +10,7 @@ from core.other.phonenumber import Phonenumber
 from core.other.usps import USPSLookup
 from core.other.usernamelookup import UserLookup
 from core.other.cryptolookup import Cryptolookup
+from core.other.email import email_lookup
 # IP modules
 from core.ip.iplookup import IpLookup
 from core.ip.ipfraud import IpFraud
@@ -50,6 +51,7 @@ class OsintKit:
             ("Crypto Lookup",         ["address"],           Cryptolookup,             "Looks up the supplied crypto address on various sites"),
             ("Is Proxy",              ["IP"],                isproxy,                  "Checks if the IP is a proxy"),
             ("Port Scan",             ["IP", "-oendport"],   portscan,                 "Scans the ports of an IP address"),
+            ("Email Lookup",          ["email"],             email_lookup,             "Looks up the supplied email address on various sites"),
         ]
 
     def menu(self):
