@@ -7,8 +7,6 @@ from core.utils.init import config
 # Other modules
 from core.other.ccchecker import Checker
 from core.other.phonenumber import Phonenumber
-from core.other.ziptolocation import ZIPtoLocation
-from core.other.locationtozip import LocationtoZIP
 from core.other.usernamelookup import UserLookup
 from core.other.cryptolookup import Cryptolookup
 from core.other.email import email_lookup
@@ -29,31 +27,36 @@ from core.other.peoplelookup import PeopleLookup
 from core.domain.subdomainenum import SubdomainEnum
 from core.domain.topleveldomainenum import TopLevelDomainEnum
 from core.domain.directoryenum import DirectoryEnum
+# Location modules
+from core.location.ziptolocation import ZIPtoLocation
+from core.location.locationtozip import LocationtoZIP
+from core.location.citystatetozip import CitystateToZIP
 
 class OsintKit:
     def __init__(self) -> None:
         self.session = tls_client.Session()
-        self.methods = [
-            ("CC Checker",            ["BIN"],               Checker,                  "Checks bank identification numbers"),
-            ("IP Lookup",             ["IP"],                IpLookup,                 "Looks up the supplied ip address"),
-            ("MC username to ID",     ["username"],          UsernameToId,             "Converts a Minecraft username to its corresponding UUID"),
-            ("MC Cape and Skin",      ["username"],          CapeAndSkin,              "Grabs the Cape and Skin of a Minecraft username"),
-            ("MC Is Blocked Server",  ["server"],            IsBlocked,                "Checks if a Minecraft server is blocked"),
-            ("Phone Lookup",          ["phone"],             Phonenumber,              "Looks up the carrier and region of a phone number"),
-            ("USPS Lookup",           ["code"],              ZIPtoLocation,            "Uses USPS to look up a postal code and get the default city and state"),
-            ("Location to ZIP",       ["address", "city", "state"], LocationtoZIP,     "Converts an address to a ZIP code"),
-            ("Discord ID Lookup",     ["id"],                IdLookup,                 "Looks up the supplied Discord ID"),
-            ("Discord Invite Info",   ["invite"],            DiscordInvInfo,           "Looks up the supplied Discord invite code"),
-            ("People Lookup",         ["name","-olocation"], PeopleLookup,             "Looks up people on 192.com"),
-            ("User Lookup",           ["username"],          UserLookup,               "Looks up the supplied username on various sites"),
-            ("Subdomain Enum",        ["domain"],            SubdomainEnum,            "Enumerates subdomains for a given domain"),
-            ("Top Level Domain Enum", ["domain"],            TopLevelDomainEnum,       "Enumerates top level domains for a given domain"),
-            ("Directory Enum",        ["domain"],            DirectoryEnum,            "Enumerates directories for a given domain"),
-            ("IP Fraud Lookup",       ["ip"],                IpFraud,                  "Looks up the rating and score of an IP address"),
-            ("Crypto Lookup",         ["address"],           Cryptolookup,             "Looks up the supplied crypto address on various sites"),
-            ("Is Proxy",              ["IP"],                isproxy,                  "Checks if the IP is a proxy"),
-            ("Port Scan",             ["IP", "-oendport"],   portscan,                 "Scans the ports of an IP address"),
-            ("Email Lookup",          ["email"],             email_lookup,             "Looks up the supplied email address on various sites"),
+        self.methods = [       
+            ("CC Checker",            ["BIN"],                      Checker,                  "Checks bank identification numbers"),
+            ("IP Lookup",             ["IP"],                       IpLookup,                 "Looks up the supplied ip address"),
+            ("MC username to ID",     ["username"],                 UsernameToId,             "Converts a Minecraft username to its corresponding UUID"),
+            ("MC Cape and Skin",      ["username"],                 CapeAndSkin,              "Grabs the Cape and Skin of a Minecraft username"),
+            ("MC Is Blocked Server",  ["server"],                   IsBlocked,                "Checks if a Minecraft server is blocked"),
+            ("Phone Lookup",          ["phone"],                    Phonenumber,              "Looks up the carrier and region of a phone number"),
+            ("USPS Lookup",           ["code"],                     ZIPtoLocation,            "Uses USPS to look up a postal code and get the default city and state"),
+            ("Location to ZIP",       ["address", "city", "state"], LocationtoZIP,            "Converts an address to a ZIP code"),
+            ("City State to ZIP",     ["city", "state"],            CitystateToZIP,           "Converts a city and state to a ZIP code"),
+            ("Discord ID Lookup",     ["id"],                       IdLookup,                 "Looks up the supplied Discord ID"),
+            ("Discord Invite Info",   ["invite"],                   DiscordInvInfo,           "Looks up the supplied Discord invite code"),
+            ("People Lookup",         ["name","-olocation"],        PeopleLookup,             "Looks up people on 192.com"),
+            ("User Lookup",           ["username"],                 UserLookup,               "Looks up the supplied username on various sites"),
+            ("Subdomain Enum",        ["domain"],                   SubdomainEnum,            "Enumerates subdomains for a given domain"),
+            ("Top Level Domain Enum", ["domain"],                   TopLevelDomainEnum,       "Enumerates top level domains for a given domain"),
+            ("Directory Enum",        ["domain"],                   DirectoryEnum,            "Enumerates directories for a given domain"),
+            ("IP Fraud Lookup",       ["ip"],                       IpFraud,                  "Looks up the rating and score of an IP address"),
+            ("Crypto Lookup",         ["address"],                  Cryptolookup,             "Looks up the supplied crypto address on various sites"),
+            ("Is Proxy",              ["IP"],                       isproxy,                  "Checks if the IP is a proxy"),
+            ("Port Scan",             ["IP", "-oendport"],          portscan,                 "Scans the ports of an IP address"),
+            ("Email Lookup",          ["email"],                    email_lookup,             "Looks up the supplied email address on various sites"),
         ]
 
     def menu(self):
