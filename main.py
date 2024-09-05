@@ -10,6 +10,7 @@ from core.other.phonenumber import Phonenumber
 from core.other.usernamelookup import UserLookup
 from core.other.cryptolookup import Cryptolookup
 from core.other.email import email_lookup
+from core.other.peoplelookup import PeopleLookup
 # IP modules
 from core.ip.iplookup import IpLookup
 from core.ip.ipfraud import IpFraud
@@ -22,7 +23,7 @@ from core.minecraft.isblockedserver import IsBlocked
 # Discord modules
 from core.discord.idlookup import IdLookup
 from core.discord.discordinvinfo import DiscordInvInfo
-from core.other.peoplelookup import PeopleLookup
+from core.discord.discordwebhookinfo import WebhookInfo
 # Domain modules
 from core.domain.subdomainenum import SubdomainEnum
 from core.domain.topleveldomainenum import TopLevelDomainEnum
@@ -47,6 +48,7 @@ class OsintKit:
             ("City State to ZIP",     ["city", "state"],            CitystateToZIP,           "Converts a city and state to a ZIP code"),
             ("Discord ID Lookup",     ["id"],                       IdLookup,                 "Looks up the supplied Discord ID"),
             ("Discord Invite Info",   ["invite"],                   DiscordInvInfo,           "Looks up the supplied Discord invite code"),
+            ("Discord Webhook Info",  ["webhook"],                  WebhookInfo,              "Looks up the supplied Discord webhook code"),
             ("People Lookup",         ["name","-olocation"],        PeopleLookup,             "Looks up people on 192.com"),
             ("User Lookup",           ["username"],                 UserLookup,               "Looks up the supplied username on various sites"),
             ("Subdomain Enum",        ["domain"],                   SubdomainEnum,            "Enumerates subdomains for a given domain"),

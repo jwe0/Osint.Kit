@@ -36,3 +36,16 @@ def dump_json(json_data):
 def load_config():
     with open("core/config.json", "r") as f:
         return json.load(f)
+    
+def format_json(data):
+    def format_json(data, dump={}):
+        for key, value in data.items():
+            if isinstance(value, dict):
+                format_json(value)
+            elif isinstance(value, list):
+                dump[key] = ", ".join(value)
+            else:
+                dump[key] = value
+        return dump
+    dump = format_json(data)
+    return dump
