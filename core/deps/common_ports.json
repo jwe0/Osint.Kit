@@ -1,0 +1,311 @@
+{
+    "7": {
+        "service": "Echo",
+        "protocols": "TCP, UDP"
+    },
+    "19": {
+        "service": "CHARGEN",
+        "protocols": "TCP, UDP"
+    },
+    "20": {
+        "service": "FTP-data",
+        "protocols": "TCP, SCTP"
+    },
+    "21": {
+        "service": "FTP",
+        "protocols": "TCP, UDP, SCTP",
+        "description": "File Transfer Protocol command control"
+    },
+    "22": {
+        "service": "SSH/SCP/SFTP",
+        "protocols": "TCP, UDP, SCTP"
+    },
+    "23": {
+        "service": "Telnet",
+        "protocols": "TCP"
+    },
+    "25": {
+        "service": "SMTP",
+        "protocols": "TCP"
+    },
+    "42": {
+        "service": "WINS Replication",
+        "protocols": "TCP, UDP"
+    },
+    "43": {
+        "service": "WHOIS",
+        "protocols": "TCP, UDP"
+    },
+    "49": {
+        "service": "TACACS",
+        "protocols": "UDP; can also use TCP but not necessarily on port 49"
+    },
+    "53": {
+        "service": "DNS",
+        "protocols": "TCP, UDP"
+    },
+    "67": {
+        "service": "DHCP/BOOTP",
+        "protocols": "UDP"
+    },
+    "68": {
+        "service": "DHCP/BOOTP",
+        "protocols": "UDP"
+    },
+    "69": {
+        "service": "TFTP",
+        "protocols": "UDP"
+    },
+    "70": {
+        "service": "Gopher",
+        "protocols": "TCP"
+    },
+    "79": {
+        "service": "Finger",
+        "protocols": "TCP"
+    },
+    "80": {
+        "service": "HTTP",
+        "protocols": "TCP, UDP, SCTP"
+    },
+    "88": {
+        "service": "Kerberos",
+        "protocols": "TCP, UDP"
+    },
+    "102": {
+        "service": "Microsoft Exchange ISO-TSAP",
+        "protocols": "TCP"
+    },
+    "110": {
+        "service": "POP3",
+        "protocols": "TCP"
+    },
+    "113": {
+        "service": "Ident",
+        "protocols": "TCP"
+    },
+    "119": {
+        "service": "NNTP (Usenet)",
+        "protocols": "TCP"
+    },
+    "123": {
+        "service": "NTP",
+        "protocols": "UDP"
+    },
+    "135": {
+        "service": "Microsoft RPC EPMAP",
+        "protocols": "TCP, UDP"
+    },
+    "137": {
+        "service": "NetBIOS-ns",
+        "protocols": "TCP, UDP"
+    },
+    "138": {
+        "service": "NetBIOS-dgm",
+        "protocols": "TCP, UDP"
+    },
+    "139": {
+        "service": "NetBIOS-ssn",
+        "protocols": "TCP, UDP"
+    },
+    "143": {
+        "service": "IMAP",
+        "protocols": "TCP, UDP"
+    },
+    "161": {
+        "service": "SNMP-agents (unencrypted)",
+        "protocols": "UDP"
+    },
+    "162": {
+        "service": "SNMP-trap (unencrypted)",
+        "protocols": "UDP"
+    },
+    "177": {
+        "service": "XDMCP",
+        "protocols": "UDP"
+    },
+    "179": {
+        "service": "BGP",
+        "protocols": "TCP"
+    },
+    "194": {
+        "service": "IRC",
+        "protocols": "UDP"
+    },
+    "201": {
+        "service": "AppleTalk",
+        "protocols": "TCP, UDP"
+    },
+    "264": {
+        "service": "BGMP",
+        "protocols": "TCP, UDP"
+    },
+    "318": {
+        "service": "TSP",
+        "protocols": "TCP, UDP"
+    },
+    "381": {
+        "service": "HP Openview",
+        "protocols": "TCP, UDP"
+    },
+    "383": {
+        "service": "HP Openview",
+        "protocols": "TCP, UDP"
+    },
+    "389": {
+        "service": "LDAP",
+        "protocols": "TCP, UDP"
+    },
+    "411": {
+        "service": "(Multiple uses)",
+        "protocols": "TCP, UDP"
+    },
+    "412": {
+        "service": "(Multiple uses)",
+        "protocols": "TCP, UDP"
+    },
+    "427": {
+        "service": "SLP",
+        "protocols": "TCP"
+    },
+    "443": {
+        "service": "HTTPS (HTTP over SSL)",
+        "protocols": "TCP, UDP, SCTP"
+    },
+    "445": {
+        "service": "Microsoft DS SMB",
+        "protocols": "TCP, UDP"
+    },
+    "464": {
+        "service": "Kerberos",
+        "protocols": "TCP, UDP"
+    },
+    "465": {
+        "service": "SMTP over TLS/SSL, SSM",
+        "protocols": "TCP"
+    },
+    "497": {
+        "service": "Dantz Retrospect",
+        "protocols": "TCP, UDP"
+    },
+    "500": {
+        "service": "IPSec / ISAKMP / IKE",
+        "protocols": "UDP"
+    },
+    "512": {
+        "service": "rexec",
+        "protocols": "TCP"
+    },
+    "513": {
+        "service": "rlogin",
+        "protocols": "TCP"
+    },
+    "514": {
+        "service": "syslog",
+        "protocols": "UDP"
+    },
+    "515": {
+        "service": "LPD/LPR",
+        "protocols": "TCP"
+    },
+    "520": {
+        "service": "RIP",
+        "protocols": "UDP"
+    },
+    "521": {
+        "service": "RIPng (IPv6)",
+        "protocols": "UDP"
+    },
+    "540": {
+        "service": "UUCP",
+        "protocols": "TCP"
+    },
+    "548": {
+        "service": "AFP",
+        "protocols": "TCP"
+    },
+    "554": {
+        "service": "RTSP",
+        "protocols": "TCP, UDP"
+    },
+    "546": {
+        "service": "DHCPv6",
+        "protocols": "TCP, UDP"
+    },
+    "547": {
+        "service": "DHCPv6",
+        "protocols": "TCP, UDP"
+    },
+    "560": {
+        "service": "rmonitor",
+        "protocols": "UDP"
+    },
+    "563": {
+        "service": "NNTP over TLS/SSL",
+        "protocols": "TCP, UDP"
+    },
+    "587": {
+        "service": "SMTP",
+        "protocols": "TCP"
+    },
+    "591": {
+        "service": "FileMaker",
+        "protocols": "TCP"
+    },
+    "593": {
+        "service": "Microsoft DCOM",
+        "protocols": "TCP, UDP"
+    },
+    "596": {
+        "service": "SMSD",
+        "protocols": "TCP, UDP"
+    },
+    "631": {
+        "service": "IPP",
+        "protocols": "TCP"
+    },
+    "636": {
+        "service": "LDAP over TLS/SSL",
+        "protocols": "TCP, UDP"
+    },
+    "639": {
+        "service": "MSDP (PIM)",
+        "protocols": "TCP"
+    },
+    "646": {
+        "service": "LDP (MPLS)",
+        "protocols": "TCP, UDP"
+    },
+    "691": {
+        "service": "Microsoft Exchange",
+        "protocols": "TCP"
+    },
+    "860": {
+        "service": "iSCSI",
+        "protocols": "TCP"
+    },
+    "873": {
+        "service": "rsync",
+        "protocols": "TCP"
+    },
+    "902": {
+        "service": "VMware Server",
+        "protocols": "TCP, UDP"
+    },
+    "989": {
+        "service": "FTPS",
+        "protocols": "TCP"
+    },
+    "990": {
+        "service": "FTPS",
+        "protocols": "TCP"
+    },
+    "993": {
+        "service": "IMAP over SSL (IMAPS)",
+        "protocols": "TCP"
+    },
+    "995": {
+        "service": "POP3 over SSL (POP3S)",
+        "protocols": "TCP, UDP"
+    }
+}

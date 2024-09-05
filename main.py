@@ -14,6 +14,7 @@ from core.other.cryptolookup import Cryptolookup
 from core.ip.iplookup import IpLookup
 from core.ip.ipfraud import IpFraud
 from core.ip.isproxy import isproxy
+from core.ip.portscanner import portscan
 # Minecraft modules
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
@@ -47,7 +48,8 @@ class OsintKit:
             ("Directory Enum",        ["domain"],   DirectoryEnum,            "Enumerates directories for a given domain"),
             ("IP Fraud Lookup",       ["ip"],       IpFraud,                  "Looks up the rating and score of an IP address"),
             ("Crypto Lookup",         ["address"],  Cryptolookup,             "Looks up the supplied crypto address on various sites"),
-            ("Is Proxy",              ["IP"],       isproxy,                     "Checks if the IP is a proxy")
+            ("Is Proxy",              ["IP"],       isproxy,                  "Checks if the IP is a proxy"),
+            ("Port Scan",             ["IP", "-oendport"],       portscan,                 "Scans the ports of an IP address"),
         ]
 
     def menu(self):

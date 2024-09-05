@@ -1,0 +1,497 @@
+{
+    "1025": {
+      "service": "Microsoft RPC",
+      "protocols": "TCP"
+    },
+    "1026-1029": {
+      "service": "Windows Messenger",
+      "protocols": "UDP"
+    },
+    "1080": {
+      "service": "SOCKS proxy, MyDoom",
+      "protocols": "TCP (or UDP since SOCKS5), TCP"
+    },
+    "1194": {
+      "service": "OpenVPN",
+      "protocols": "TCP, UDP"
+    },
+    "1214": {
+      "service": "KAZAA",
+      "protocols": "TCP"
+    },
+    "1241": {
+      "service": "Nessus Security Scanner",
+      "protocols": "TCP, UDP"
+    },
+    "1311": {
+      "service": "Dell OpenManage",
+      "protocols": "TCP"
+    },
+    "1337": {
+      "service": "WASTE",
+      "protocols": "TCP"
+    },
+    "1589": {
+      "service": "Cisco VQP",
+      "protocols": "TCP, UDP"
+    },
+    "1701": {
+      "service": "L2TP VPN",
+      "protocols": "TCP"
+    },
+    "1720": {
+      "service": "H.323",
+      "protocols": "TCP"
+    },
+    "1723": {
+      "service": "Microsoft PPTP",
+      "protocols": "TCP, UDP"
+    },
+    "1725": {
+      "service": "Steam",
+      "protocols": "UDP"
+    },
+    "1741": {
+      "service": "CiscoWorks SNMS 2000",
+      "protocols": "TCP"
+    },
+    "1755": {
+      "service": "MMS",
+      "protocols": "TCP, UDP"
+    },
+    "1812": {
+      "service": "RADIUS",
+      "protocols": "UDP"
+    },
+    "1813": {
+      "service": "RADIUS",
+      "protocols": "UDP"
+    },
+    "1863": {
+      "service": "MSN Messenger, Xbox Live 360",
+      "protocols": "TCP, UDP"
+    },
+    "1900": {
+      "service": "UPnP",
+      "protocols": "UDP"
+    },
+    "1985": {
+      "service": "Cisco HSRP",
+      "protocols": "UDP"
+    },
+    "2000": {
+      "service": "Cisco SCCP",
+      "protocols": "TCP"
+    },
+    "2002": {
+      "service": "Cisco ACS",
+      "protocols": "TCP"
+    },
+    "2049": {
+      "service": "NFS",
+      "protocols": "UDP"
+    },
+    "2082": {
+      "service": "cPanel default",
+      "protocols": "TCP, UDP"
+    },
+    "2083": {
+      "service": "Secure RADIUS Service (radsec), cPanel default SSL",
+      "protocols": "TCP, UDP"
+    },
+    "2100": {
+      "service": "Amiga Network Filesystem",
+      "protocols": "TCP"
+    },
+    "2222": {
+      "service": "DirectAdmin",
+      "protocols": "TCP"
+    },
+    "2302": {
+      "service": "Gaming",
+      "protocols": "UDP"
+    },
+    "2483": {
+      "service": "Oracle",
+      "protocols": "TCP, UDP"
+    },
+    "2484": {
+      "service": "Oracle",
+      "protocols": "TCP, UDP"
+    },
+    "2745": {
+      "service": "Bagle.C – Bagle.H",
+      "protocols": "TCP"
+    },
+    "2967": {
+      "service": "Symantec AV",
+      "protocols": "TCP, UDP"
+    },
+    "3050": {
+      "service": "Interbase DB",
+      "protocols": "TCP, UDP"
+    },
+    "3074": {
+      "service": "XBOX Live",
+      "protocols": "TCP, UDP"
+    },
+    "3127": {
+      "service": "MyDoom",
+      "protocols": "TCP"
+    },
+    "3128": {
+      "service": "HTTP Proxy",
+      "protocols": "TCP"
+    },
+    "3222": {
+      "service": "GLBP",
+      "protocols": "TCP, UDP"
+    },
+    "3260": {
+      "service": "iSCSI Target",
+      "protocols": "TCP, UDP"
+    },
+    "3724": {
+      "service": "World of Warcraft",
+      "protocols": "TCP, UDP"
+    },
+    "3306": {
+      "service": "MySQL",
+      "protocols": "TCP, UDP"
+    },
+    "3784-3785": {
+      "service": "Ventrilo VoIP",
+      "protocols": "TCP"
+    },
+    "3389": {
+      "service": "Windows Remote Desktop Protocol (Microsoft Terminal Server)",
+      "protocols": "TCP"
+    },
+    "3": {
+      "service": "TCP, UDP"
+    },
+    "3690": {
+      "service": "IPSec NAT Traversal",
+      "protocols": "UDP"
+    },
+    "4664": {
+      "service": "Google Desktop",
+      "protocols": "TCP"
+    },
+    "4672": {
+      "service": "eMule",
+      "protocols": "UDP"
+    },
+    "4333": {
+      "service": "mSQL",
+      "protocols": "TCP"
+    },
+    "4444": {
+      "service": "Blaster",
+      "protocols": "TCP, UDP"
+    },
+    "4500": {
+      "service": "IPSec NAT Traversal",
+      "protocols": "UDP"
+    },
+    "5001": {
+      "service": "iperf",
+      "protocols": "TCP"
+    },
+    "5060": {
+      "service": "SIP",
+      "protocols": "TCP, UDP"
+    },
+    "5004-5005": {
+      "service": "RTP, RTSP",
+      "protocols": "UDP"
+    },
+    "5000": {
+      "service": "UPnP",
+      "protocols": "TCP"
+    },
+    "5050": {
+      "service": "Yahoo! Messenger",
+      "protocols": "TCP"
+    },
+    "190": {
+      "service": "ICQ, AIM (AOL Instant Messenger), Apple iChat",
+      "protocols": "TCP, UDP"
+    },
+    "5222-5223": {
+      "service": "XMPP",
+      "protocols": "TCP,UDP"
+    },
+    "5061": {
+      "service": "SIP-TLS",
+      "protocols": "TCP"
+    },
+    "5190": {
+      "service": "ICQ, AIM (AOL Instant Messenger), Apple iChat",
+      "protocols": "TCP"
+    },
+    "5353": {
+      "service": "MDNS",
+      "protocols": "TCP, UDP"
+    },
+    "5432": {
+      "service": "PostgreSQL",
+      "protocols": "TCP"
+    },
+    "5554": {
+      "service": "Sasser",
+      "protocols": "TCP"
+    },
+    "5631-5632": {
+      "service": "pcAnywhere",
+      "protocols": "UDP"
+    },
+    "5800": {
+      "service": "VNC over HTTP",
+      "protocols": "TCP"
+    },
+    "5900-5999": {
+      "service": "RFB/VNC Server",
+      "protocols": "TCP, UDP"
+    },
+    "6000": {
+      "service": "X11",
+      "protocols": "TCP"
+    },
+    "6001": {
+      "service": "X11",
+      "protocols": "UDP"
+    },
+    "6112": {
+      "service": "Diablo",
+      "protocols": "TCP, UDP"
+    },
+    "6129": {
+      "service": "DameWare",
+      "protocols": "TCP"
+    },
+    "6257": {
+      "service": "WinMX",
+      "protocols": "UDP"
+    },
+    "6346-6347": {
+      "service": "Gnutella2",
+      "protocols": "TCP, UDP"
+    },
+    "6379": {
+      "service": "Redis",
+      "protocols": "TCP"
+    },
+    "6500": {
+      "service": "GameSpy",
+      "protocols": "TCP, UDP"
+    },
+    "6566": {
+      "service": "SANE",
+      "protocols": "TCP, UDP"
+    },
+    "6588": {
+      "service": "AnalogX, HTTP Prox",
+      "protocols": "TCP"
+    },
+    "6665-6669": {
+      "service": "IRC",
+      "protocols": "TCP"
+    },
+    "6679, 6697": {
+      "service": "IRC over SSL",
+      "protocols": "TCP"
+    },
+    "6699": {
+      "service": "Napster",
+      "protocols": "TCP"
+    },
+    "6881-6999": {
+      "service": "BitTorrent",
+      "protocols": "TCP, UDP"
+    },
+    "6891-6901": {
+      "service": "Windows Live Messenger",
+      "protocols": "TCP, UDP"
+    },
+    "6970": {
+      "service": "Quicktime",
+      "protocols": "TCP, UDP"
+    },
+    "7000-7001": {
+      "service": "Cassandra",
+      "protocols": "TCP"
+    },
+    "7001": {
+      "service": "SSL-enabled inter-node communicationwithin the cluster on Apache Cassandra",
+      "protocols": "TCP"
+    },
+    "7199": {
+      "service": "Java Management Extensions on Apache Cassandra",
+      "protocols": "TCP"
+    },
+    "7648-7649": {
+      "service": "CU-SeeMe",
+      "protocols": "TCP, UDP"
+    },
+    "8000": {
+      "service": "Internet Radio",
+      "protocols": "TCP"
+    },
+    "8080": {
+      "service": "HTTP Proxy",
+      "protocols": "TCP"
+    },
+    "8086": {
+      "service": "Kaspersky AV Control Center",
+      "protocols": "TCP"
+    },
+    "8087": {
+      "service": "Kaspersky AV Control Center",
+      "protocols": "UDP"
+    },
+    "8118": {
+      "service": "Privoxy",
+      "protocols": "TCP"
+    },
+    "8200": {
+      "service": "VMware vSphere Fault Tolerance",
+      "protocols": "TCP, UDP"
+    },
+    "8222": {
+      "service": "VMware Server Management User Interface (insecure Web interface).",
+      "protocols": "TCP, UDP"
+    },
+    "8500": {
+      "service": "Adobe ColdFusion",
+      "protocols": "TCP, UDP"
+    },
+    "8767": {
+      "service": "Teamspeak",
+      "protocols": "UDP"
+    },
+    "8866": {
+      "service": "Bagle.B",
+      "protocols": "TCP"
+    },
+    "9042": {
+      "service": "Cassandra",
+      "protocols": "TCP"
+    },
+    "9100": {
+      "service": "PDL",
+      "protocols": "TCP"
+    },
+    "9101-9103": {
+      "service": "Bacula",
+      "protocols": "TCP, UDP"
+    },
+    "9119": {
+      "service": "MXit",
+      "protocols": "TCP, UDP"
+    },
+    "9800": {
+      "service": "WebDAV",
+      "protocols": "TCP, UDP"
+    },
+    "9898": {
+      "service": "Dabber",
+      "protocols": "TCP"
+    },
+    "9999": {
+      "service": "Urchin",
+      "protocols": "TCP, UDP"
+    },
+    "10000": {
+      "service": "Network Data Management Protocol",
+      "protocols": "TCP, UDP"
+    },
+    "10161": {
+      "service": "SNMP-agents (encrypted)",
+      "protocols": "TCP"
+    },
+    "10162": {
+      "service": "SNMP-trap (encrypted)",
+      "protocols": "TCP"
+    },
+    "10113": {
+      "service": "NetIQ Endpoint",
+      "protocols": "TCP, UDP"
+    },
+    "10114": {
+      "service": "NetIQ Qcheck",
+      "protocols": "TCP, UDP"
+    },
+    "10115": {
+      "service": "NetIQ Endpoint",
+      "protocols": "TCP, UDP"
+    },
+    "10116": {
+      "service": "NetIQ VoIP Assessor",
+      "protocols": "TCP, UDP"
+    },
+    "11371": {
+      "service": "OpenPGP",
+      "protocols": "TCP, UDP"
+    },
+    "12345": {
+      "service": "NetBus",
+      "protocols": "TCP"
+    },
+    "13720-13721": {
+      "service": "NetBackup",
+      "protocols": "TCP, UDP"
+    },
+    "14567": {
+      "service": "Battlefield",
+      "protocols": "UDP"
+    },
+    "15118": {
+      "service": "Dipnet/Oddbob",
+      "protocols": "TCP"
+    },
+    "19226": {
+      "service": "AdminSecure",
+      "protocols": "TCP"
+    },
+    "19638": {
+      "service": "Ensim Control Panel",
+      "protocols": "TCP"
+    },
+    "20000": {
+      "service": "Usermin",
+      "protocols": "TCP, UDP"
+    },
+    "24800": {
+      "service": "Synergy",
+      "protocols": "TCP, UDP"
+    },
+    "25999": {
+      "service": "Xfire",
+      "protocols": "TCP"
+    },
+    "27015": {
+      "service": "Half-Life",
+      "protocols": "UDP"
+    },
+    "27017": {
+      "service": "MongoDB",
+      "protocols": "TCP"
+    },
+    "27374": {
+      "service": "Sub7",
+      "protocols": "TCP, UDP"
+    },
+    "28960": {
+      "service": "Call of Duty",
+      "protocols": "TCP, UDP"
+    },
+    "31337": {
+      "service": "Back Orifice",
+      "protocols": "TCP, UDP"
+    },
+    "33434+": {
+      "service": "traceroute",
+      "protocols": "UDP"
+    }
+  }
