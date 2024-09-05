@@ -24,7 +24,7 @@ def intelligencex(email):
         }
         data = {
             "term" : email,
-            "buckets" : ["leaks.public"],
+            "buckets" : ["leaks.public", "leaks.private"],
             "lookuplevel" : 0,
             "maxresults" : 1000,
             "timeout" : 5,
@@ -68,7 +68,6 @@ def intelligencex(email):
             return False
 
     def dump(results):
-        print("dump api")
         dumps = []
         dump = results.get("records")
         for d in dump:

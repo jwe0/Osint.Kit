@@ -1,5 +1,5 @@
 import tls_client
-def USPSLookup(args):
+def ZIPtoLocation(args):
     session = tls_client.Session()
     log = {}
     address = args.get("code", "")

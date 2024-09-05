@@ -7,7 +7,8 @@ from core.utils.init import config
 # Other modules
 from core.other.ccchecker import Checker
 from core.other.phonenumber import Phonenumber
-from core.other.usps import USPSLookup
+from core.other.ziptolocation import ZIPtoLocation
+from core.other.locationtozip import LocationtoZIP
 from core.other.usernamelookup import UserLookup
 from core.other.cryptolookup import Cryptolookup
 from core.other.email import email_lookup
@@ -39,7 +40,8 @@ class OsintKit:
             ("MC Cape and Skin",      ["username"],          CapeAndSkin,              "Grabs the Cape and Skin of a Minecraft username"),
             ("MC Is Blocked Server",  ["server"],            IsBlocked,                "Checks if a Minecraft server is blocked"),
             ("Phone Lookup",          ["phone"],             Phonenumber,              "Looks up the carrier and region of a phone number"),
-            ("USPS Lookup",           ["code"],              USPSLookup,               "Uses USPS to look up a postal code and get the default city and state"),
+            ("USPS Lookup",           ["code"],              ZIPtoLocation,            "Uses USPS to look up a postal code and get the default city and state"),
+            ("Location to ZIP",       ["address", "city", "state"], LocationtoZIP,     "Converts an address to a ZIP code"),
             ("Discord ID Lookup",     ["id"],                IdLookup,                 "Looks up the supplied Discord ID"),
             ("Discord Invite Info",   ["invite"],            DiscordInvInfo,           "Looks up the supplied Discord invite code"),
             ("People Lookup",         ["name","-olocation"], PeopleLookup,             "Looks up people on 192.com"),
