@@ -1,4 +1,7 @@
+# Directories
 env
+test
 __pycache__
+# Files
 config.json
 pyvenv.cfg

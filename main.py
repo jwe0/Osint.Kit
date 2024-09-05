@@ -1,4 +1,5 @@
 import tls_client
+from colorama import Fore
 # Core modules
 from core.utils.logging import success, error, warning, inpt, info
 from core.utils.general import ascii_art, clear, dump_json
@@ -48,15 +49,83 @@ class OsintKit:
 
     def menu(self):
         warning("OSINT Kit")
-        for method in self.methods:
-            info(f"[{str(self.methods.index(method) + 1)}] {method[0]}")
+        index_split = 5
+        def format_msg(message):
+            message = []
+            prog = 0
+            total = 0
+            sub_msg = []
+            for method in self.methods:
+                sub_msg.append(f"[{str(self.methods.index(method) + 1)}] {method[0]}")
+                prog += 1
+                if prog == index_split:
+                    message.append(sub_msg)
+                    sub_msg = []
+                    total += prog
+                    prog = 0
+            sub_msg = []
+            for method in self.methods[total:]:
+                sub_msg.append(f"[{str(self.methods.index(method) + 1)}] {method[0]}")
+            message.append(sub_msg)
+            return message
+
+        def append_fix(message):
+            max_length = max(len(sublist) for sublist in message)
+            for i in range(len(message)):
+                if len(message[i]) < max_length:
+                    message[i].extend([""] * (max_length - len(message[i])))
+            return message
+
+        def paddings(message):
+            padding = []
+            for i in range(len(message)):
+                padding.append(max(len(sublist) for sublist in message[i]))
+            return padding
+
+        def format(message):
+            final = []
+            padding = paddings(message)
+            max_length = max(len(sublist) for sublist in message)
+
+            for i in range(max_length):
+                sub = []
+                for j in range(len(message)):
+                    if i < len(message[j]):
+                        sub.append(message[j][i] + " " * (padding[j] - len(message[j][i])))
+                    else:
+                        sub.append("")
+                final.append(sub)
+            
+            return final
+        def make_header(padding):
+            header = []
+            for pad in padding:
+                sub = "+"
+                for i in range(pad + 2):
+                    sub += f"{Fore.LIGHTBLACK_EX}-{Fore.RESET}"
+                header.append(sub)
+            header.append("+")
+            return header
+        
+        message = ""
+        msg = append_fix(format_msg(self.methods))
+        padding = paddings(msg)
+        columns = format(msg)
+        header = make_header(padding)
+        message += "".join(header)
+        message += "\n"
+        for col in columns: 
+            message += f"{Fore.LIGHTBLACK_EX}|{Fore.RESET} "
+            message += f" {Fore.LIGHTBLACK_EX}|{Fore.RESET} ".join(col) + f" {Fore.LIGHTBLACK_EX}|{Fore.RESET}\n"
+        message += "".join(header)
+        return message
 
     def main(self):
         config()
         while True:
             clear()
             ascii_art()
-            self.menu()
+            print(self.menu())
             args = {}
             choice = inpt("Choice: ")
             if choice == "!q":
