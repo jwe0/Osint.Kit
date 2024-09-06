@@ -1,6 +1,7 @@
 # Directories
 env
 test
+dumps
 __pycache__
 # Files
 config.json

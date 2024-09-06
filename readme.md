@@ -5,3 +5,4 @@
 - Rainbow tables
 - Server banner grabbing
 - Google dorking
+- Business lookups
