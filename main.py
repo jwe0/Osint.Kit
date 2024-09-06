@@ -141,6 +141,10 @@ class OsintKit:
             choice = inpt("Choice: ")
             if choice == "!q":
                 break
+            elif choice == "!dc":
+                info("https://discord.gg/Pd9HkP7b")
+                inpt("Press enter to continue...")
+                continue
             elif choice not in [str(i) for i in range(len(self.methods) + 1)]:
                 error("Invalid choice")
                 inpt("Press enter to continue...")
