@@ -1,4 +1,5 @@
 # Osint.Kit
 
 ## Todo list
-- Nothing atm
+- Hash cracker
+- Rainbow tables
