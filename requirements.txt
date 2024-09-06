@@ -1,8 +1,12 @@
 beautifulsoup4==4.12.3
 bs4==0.0.2
+cffi==1.17.1
 colorama==0.4.6
+cryptography==43.0.1
 dnspython==2.6.1
 phonenumbers==8.13.44
+pycparser==2.22
+pytz==2024.1
 soupsieve==2.6
 tls-client==1.0.1
 typing_extensions==4.12.2
