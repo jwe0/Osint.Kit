@@ -11,11 +11,14 @@ from core.other.usernamelookup import UserLookup
 from core.other.cryptolookup import Cryptolookup
 from core.other.email import email_lookup
 from core.other.peoplelookup import PeopleLookup
+from core.other.hashcracker import hashcracker
+from core.other.cvesearcher import FindCVE_NVD_NIST
 # IP modules
 from core.ip.iplookup import IpLookup
 from core.ip.ipfraud import IpFraud
 from core.ip.isproxy import isproxy
 from core.ip.portscanner import portscan
+from core.ip.getserverbanner import getbanner
 # Minecraft modules
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
@@ -60,12 +63,15 @@ class OsintKit:
             ("Crypto Lookup",         ["address"],                  Cryptolookup,             "Looks up the supplied crypto address on various sites"),
             ("Is Proxy",              ["IP"],                       isproxy,                  "Checks if the IP is a proxy"),
             ("Port Scan",             ["IP", "-oendport"],          portscan,                 "Scans the ports of an IP address"),
+            ("Get Banner",            ["IP", "port"],               getbanner,                "Gets the banner of an IP address"),
             ("Email Lookup",          ["email"],                    email_lookup,             "Looks up the supplied email address on various sites"),
+            ("Hash Cracker",          ["hash", "algorithm"],        hashcracker,              "Cracks the supplied hash"),
+            ("CVE Searcher",          ["search"],                   FindCVE_NVD_NIST,         "Searches NVD NIST for a CVE"),
         ]
 
     def menu(self):
         warning("OSINT Kit")
-        index_split = 5
+        index_split = 8
         def format_msg(message):
             message = []
             prog = 0
