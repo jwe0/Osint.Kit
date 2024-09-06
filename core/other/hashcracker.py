@@ -1,11 +1,9 @@
-import hashlib, threading, tls_client
+import hashlib, threading, tls_client, os
 
 dump = {}
 prog = 0
 crck = False
 
-def passwords():
-    return [pw.strip() for pw in tls_client.Session().get("https://raw.githubusercontent.com/drtychai/wordlists/master/fasttrack.txt").text.split("\n")]
 
 def hash_check(algorithm, password):
     if algorithm == "sha1":
@@ -42,16 +40,31 @@ def crack(passord, hash, algorithm):
         crck = True
     prog += 1
 
+def web_passwords(url):
+    return [pw.strip() for pw in tls_client.Session().get(url).text.split("\n")]
+
+def disk_passwords(path):
+    return [pw.strip() for pw in open(path, "r", errors="ignore").readlines()]
+
+def interpret_wordlist(wordlist):
+    if not wordlist:
+        return web_passwords("https://raw.githubusercontent.com/drtychai/wordlists/master/fasttrack.txt")
+    if "https" or "http" in wordlist:
+        return web_passwords(wordlist)
+    elif os.path.exists(wordlist):
+        return disk_passwords(wordlist)
+
 def hashcracker(args):
     global prog, dump, crck
-    hash = args.get("hash", "")
+    hash = args.get("hash")
     algr = args.get("algorithm")
+    wordlist = args.get("wordlist") 
     if not hash or not algr:
         return {"message" : "error", "info" : "You did not supply hash information"}
     test = hash_check(algr, hash)
     if "error" in test:
         return {"message" : "error", "info" : test.get("info")}
-    passwords_ = passwords()
+    passwords_ = interpret_wordlist(wordlist)
     for password in passwords_:
         threading.Thread(target=crack, args=(password, hash, algr)).start()
 
