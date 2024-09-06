@@ -1,6 +1,5 @@
 import phonenumbers, json
 from phonenumbers import geocoder
-from phonenumbers import carrier
 from phonenumbers import timezone
 
 def get_info(number):
@@ -19,15 +18,26 @@ def get_info(number):
         return ""
     return info
 
+def get_carrier(num):
+    num = num.removeprefix("+")
+    data = json.load(open("core/deps/carriers.json", "r"))
+    for i in range(len(num)):
+        car = data.get(num[:i])
+        if car:
+            return car.get("en")
+        continue
+    return None
+
 def Phonenumber(args):
     number = args.get("phone", "")
+    num = number
     data = {}
     if not number:
         return {"message" : "error", "info" : "You did not supply phone number information"}
     try:
         dump = get_info(number)
         number = phonenumbers.parse(number)
-        carrier_ = carrier.name_for_number(number, "en")
+        carrier_ = get_carrier(num)
         region   = geocoder.description_for_number(number, "en")
         time     = timezone.time_zones_for_number(number)
         data = {
@@ -40,7 +50,15 @@ def Phonenumber(args):
                 data[key] = value
         return {"message" : "success", "info" : data}
     except Exception as e:
+        log = {}
         dump = get_info(number)
+        carr = get_carrier(num)
+        if dump:
+            for key, value in dump.items():
+                log[key] = value
+        if carr:
+            log["carrier"] = carr
+        log["error"] = str(e)
         if dump:
             return {"message" : "success", "info" : dump}
         return {"message" : "error", "info" : "Invalid phone number"}
