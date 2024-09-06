@@ -20,6 +20,7 @@ from core.ip.portscanner import portscan
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
 from core.minecraft.isblockedserver import IsBlocked
+from core.minecraft.serverlookup import MCServerLookup
 # Discord modules
 from core.discord.idlookup import IdLookup
 from core.discord.discordinvinfo import DiscordInvInfo
@@ -42,6 +43,7 @@ class OsintKit:
             ("MC username to ID",     ["username"],                 UsernameToId,             "Converts a Minecraft username to its corresponding UUID"),
             ("MC Cape and Skin",      ["username"],                 CapeAndSkin,              "Grabs the Cape and Skin of a Minecraft username"),
             ("MC Is Blocked Server",  ["server"],                   IsBlocked,                "Checks if a Minecraft server is blocked"),
+            ("MC Server Lookup",      ["server"],                   MCServerLookup,           "Looks up the status of a Minecraft server"),
             ("Phone Lookup",          ["phone"],                    Phonenumber,              "Looks up the carrier and region of a phone number"),
             ("USPS Lookup",           ["code"],                     ZIPtoLocation,            "Uses USPS to look up a postal code and get the default city and state"),
             ("Location to ZIP",       ["address", "city", "state"], LocationtoZIP,            "Converts an address to a ZIP code"),

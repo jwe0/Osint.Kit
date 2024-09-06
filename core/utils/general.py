@@ -38,14 +38,14 @@ def load_config():
         return json.load(f)
     
 def format_json(data):
-    def format_json(data, dump={}):
+    def json_format(data, dump={}):
         for key, value in data.items():
             if isinstance(value, dict):
-                format_json(value)
+                json_format(value)
             elif isinstance(value, list):
                 dump[key] = ", ".join(value)
             else:
                 dump[key] = value
         return dump
-    dump = format_json(data)
+    dump = json_format(data)
     return dump
