@@ -1,17 +1,19 @@
 import tls_client, json, threading
 from bs4 import BeautifulSoup
 from core.identity.userlookup_extra.github import git_search
+from core.identity.userlookup_extra.minecraft import mc_search
 prog = 0
 data = {}
 
-def search_extra(site_, username, session, html):
+def search_extra(site_, username, session, html, json):
     soup = BeautifulSoup(html, "html.parser")
     extra = {}
     sites = {
-        "https://github.com/{}" : git_search
+        "https://github.com/{}" : git_search,
+        "https://api.mojang.com/users/profiles/minecraft/{}" : mc_search
     }
     if site_ .get("url") in sites:
-        extra = sites[site_.get("url")](username, session, soup)
+        extra = sites[site_.get("url")](username, session, soup, json)
     return extra
 
 def check(r, method, check_val):
@@ -31,6 +33,12 @@ def check(r, method, check_val):
     prog += 1
     return False
 
+def make_decode(r):
+    try:
+        return r.json()
+    except:
+        return {}
+
 def search(site_, username, session):
     global prog
     global data
@@ -40,8 +48,9 @@ def search(site_, username, session):
     url = url.format(username)
     r = session.get(url.format(username))
     checked = check(r, method, check_val)
+    decode = make_decode(r)
     if checked:
-        details = search_extra(site_, username, session, r.text)
+        details = search_extra(site_, username, session, r.text, decode)
         data[url] = details
         prog += 1
 
