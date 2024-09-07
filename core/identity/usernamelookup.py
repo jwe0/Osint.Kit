@@ -1,7 +1,35 @@
 import tls_client, json, threading
 from bs4 import BeautifulSoup
+from core.identity.userlookup_extra.github import git_search
 prog = 0
 data = {}
+
+def search_extra(site_, username, session, html):
+    soup = BeautifulSoup(html, "html.parser")
+    extra = {}
+    sites = {
+        "https://github.com/{}" : git_search
+    }
+    if site_ .get("url") in sites:
+        extra = sites[site_.get("url")](username, session, soup)
+    return extra
+
+def check(r, method, check_val):
+    global prog
+    if method == "status-code":
+        if r.status_code == check_val:
+            return True
+    elif method == "site-content":
+        if check_val in r.text:
+            return True
+    elif method == "title-content":
+        soup = BeautifulSoup(r.text, "html.parser")
+        if not soup.title:
+            return False
+        if check_val in soup.title.text:
+            return True
+    prog += 1
+    return False
 
 def search(site_, username, session):
     global prog
@@ -11,20 +39,11 @@ def search(site_, username, session):
     check_val = site_.get("check-value")
     url = url.format(username)
     r = session.get(url.format(username))
-    if method == "status-code":
-        if r.status_code == check_val:
-            data[url] = True
-    elif method == "site-content":
-        if check_val in r.text:
-            data[url] = True
-    elif method == "title-content":
-        soup = BeautifulSoup(r.text, "html.parser")
-        if not soup.title:
-            prog += 1
-            return
-        if check_val in soup.title.text:
-            data[url] = True
-    prog += 1
+    checked = check(r, method, check_val)
+    if checked:
+        details = search_extra(site_, username, session, r.text)
+        data[url] = details
+        prog += 1
 
 def UserLookup(args):
     global prog

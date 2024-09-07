@@ -1,6 +1,6 @@
 {
     "GitHub": {
-        "url": "https://www.github.com/{}",
+        "url": "https://github.com/{}",
         "type": "status-code",
         "check-value": 200
     },

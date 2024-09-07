@@ -6,11 +6,7 @@ from core.utils.general import ascii_art, clear, dump_json
 from core.utils.init import config
 # Other modules
 from core.other.ccchecker import Checker
-from core.other.phonenumber import Phonenumber
-from core.other.usernamelookup import UserLookup
 from core.other.cryptolookup import Cryptolookup
-from core.other.email import email_lookup
-from core.other.peoplelookup import PeopleLookup
 from core.other.hashcracker import hashcracker
 from core.other.cvesearcher import FindCVE_NVD_NIST
 # IP modules
@@ -36,6 +32,11 @@ from core.domain.directoryenum import DirectoryEnum
 from core.location.ziptolocation import ZIPtoLocation
 from core.location.locationtozip import LocationtoZIP
 from core.location.citystatetozip import CitystateToZIP
+# Identity modules
+from core.identity.phonenumber import Phonenumber
+from core.identity.usernamelookup import UserLookup
+from core.identity.email import email_lookup
+from core.identity.peoplelookup import PeopleLookup
 
 class OsintKit:
     def __init__(self) -> None:
