@@ -21,6 +21,7 @@ from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
 from core.minecraft.isblockedserver import IsBlocked
 from core.minecraft.serverlookup import MCServerLookup
+from core.minecraft.hypixellookup import hypixel_lookup
 # Discord modules
 from core.discord.idlookup import IdLookup
 from core.discord.discordinvinfo import DiscordInvInfo
@@ -49,6 +50,7 @@ class OsintKit:
             ("MC Cape and Skin",      ["username"],                         CapeAndSkin,              "Grabs the Cape and Skin of a Minecraft username"),
             ("MC Is Blocked Server",  ["server"],                           IsBlocked,                "Checks if a Minecraft server is blocked"),
             ("MC Server Lookup",      ["server"],                           MCServerLookup,           "Looks up the status of a Minecraft server"),
+            ("Hypixel Lookup",        ["username"],                         hypixel_lookup,           "Looks up the hypixel stats of a player"),
             ("Phone Lookup",          ["phone"],                            Phonenumber,              "Looks up the carrier and region of a phone number"),
             ("USPS Lookup",           ["code"],                             ZIPtoLocation,            "Uses USPS to look up a postal code and get the default city and state"),
             ("Location to ZIP",       ["address", "city", "state"],         LocationtoZIP,            "Converts an address to a ZIP code"),
@@ -74,7 +76,7 @@ class OsintKit:
 
     def menu(self):
         warning("OSINT Kit")
-        index_split = 8
+        index_split = 10
         def format_msg(message):
             message = []
             prog = 0

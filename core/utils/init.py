@@ -7,7 +7,7 @@ def config():
         clear()
         ascii_art()
         warning("Creating config...")
-        api_recs = ["IPLookup", "DiscordToken","192Cookie", "IntelligenceX"]
+        api_recs = ["IPLookup", "DiscordToken","192Cookie", "IntelligenceX", "HypixelAPI"]
         config = {}
         config["OS"]       = os.name
         config["PCNAME"]   = socket.gethostname()
