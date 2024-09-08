@@ -10,12 +10,14 @@ from core.other.cryptolookup import Cryptolookup
 from core.other.hashcracker import hashcracker
 from core.other.cvesearcher import FindCVE_NVD_NIST
 from core.other.defaultrouter import router
+from core.other.maclookup import maclookup
 # IP modules
 from core.ip.iplookup import IpLookup
 from core.ip.ipfraud import IpFraud
 from core.ip.isproxy import isproxy
 from core.ip.portscanner import portscan
 from core.ip.getserverbanner import getbanner
+from core.ip.isup import isup
 # Minecraft modules
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
@@ -68,10 +70,12 @@ class OsintKit:
             ("Is Proxy",              ["IP"],                               isproxy,                  "Checks if the IP is a proxy"),
             ("Port Scan",             ["IP", "-oendport"],                  portscan,                 "Scans the ports of an IP address"),
             ("Get Banner",            ["IP", "port"],                       getbanner,                "Gets the banner of an IP address"),
+            ("Is up",                 ["target"],                           isup,                     "Checks if the target is up"),
             ("Email Lookup",          ["email"],                            email_lookup,             "Looks up the supplied email address on various sites"),
             ("Hash Cracker",          ["hash", "algorithm", "-owordlist"],  hashcracker,              "Cracks the supplied hash"),
             ("CVE Searcher",          ["search"],                           FindCVE_NVD_NIST,         "Searches NVD NIST for a CVE"),
-            ("Router password",       ["model", "-obrand"],                 router,                   "Looks up the router password")
+            ("Router password",       ["model", "-obrand"],                 router,                   "Looks up the router password"),
+            ("Mac Lookup",            ["mac"],                              maclookup,                "Looks up the supplied MAC address on various sites")
         ]
 
     def menu(self):
