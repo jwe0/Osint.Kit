@@ -9,6 +9,7 @@ from core.other.ccchecker import Checker
 from core.other.cryptolookup import Cryptolookup
 from core.other.hashcracker import hashcracker
 from core.other.cvesearcher import FindCVE_NVD_NIST
+from core.other.defaultrouter import router
 # IP modules
 from core.ip.iplookup import IpLookup
 from core.ip.ipfraud import IpFraud
@@ -68,6 +69,7 @@ class OsintKit:
             ("Email Lookup",          ["email"],                            email_lookup,             "Looks up the supplied email address on various sites"),
             ("Hash Cracker",          ["hash", "algorithm", "-owordlist"],  hashcracker,              "Cracks the supplied hash"),
             ("CVE Searcher",          ["search"],                           FindCVE_NVD_NIST,         "Searches NVD NIST for a CVE"),
+            ("Router password",       ["model", "-obrand"],                 router,                   "Looks up the router password")
         ]
 
     def menu(self):
