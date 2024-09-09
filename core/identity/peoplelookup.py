@@ -5,11 +5,13 @@ import random
 
 def PeopleLookup(args: dict):
     config = load_config()
-    sess = tls_client.Session( client_identifier=random.choice(["chrome112", "firefox129"]) )
+    sess = tls_client.Session(client_identifier=random.choice(["chrome112", "firefox129"]))
     name = args.get("name", "")
+    location = args.get("location", "").strip()
+    data = f"looking_for={name}&location={location}&searchBtn=Search" if location else f"looking_for={name}&searchBtn=Search"
     res = sess.post(
         "https://www.192.com/people/search/",
-        data = f"looking_for={name}{f"&location={args.get('location')}" if args.get("location", "").strip() != "" else ''}&searchBtn=Search",
+        data=data,
         headers={
             "Content-Type": "application/x-www-form-urlencoded",
             "Origin": "https://www.192.com",
@@ -24,8 +26,8 @@ def PeopleLookup(args: dict):
         soup = BeautifulSoup(str(elem), 'lxml')
         name = soup.find(class_='test-name').text
         addr = soup.find(class_='test-address').text
-        people += [{
+        people.append({
             "name": name,
             "address": addr
-        }]
-    return {"message" : "success", "info" : {"people": people}}
+        })
+    return {"message": "success", "info": {"people": people}}

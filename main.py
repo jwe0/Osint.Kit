@@ -2,7 +2,7 @@ import tls_client
 from colorama import Fore
 # Core modules
 from core.utils.logging import success, error, warning, inpt, info
-from core.utils.general import ascii_art, clear, dump_json
+from core.utils.general import ascii_art, clear, dump_json, modify_config, is_bug
 from core.utils.init import config
 # Other modules
 from core.other.ccchecker import Checker
@@ -75,7 +75,8 @@ class OsintKit:
             ("Hash Cracker",          ["hash", "algorithm", "-owordlist"],  hashcracker,              "Cracks the supplied hash"),
             ("CVE Searcher",          ["search"],                           FindCVE_NVD_NIST,         "Searches NVD NIST for a CVE"),
             ("Router password",       ["model", "-obrand"],                 router,                   "Looks up the router password"),
-            ("Mac Lookup",            ["mac"],                              maclookup,                "Looks up the supplied MAC address on various sites")
+            ("Mac Lookup",            ["mac"],                              maclookup,                "Looks up the supplied MAC address on various sites"),
+            ("Modify API keys",       [],                                   modify_config,            "Modifies the API keys")
         ]
 
     def menu(self):
@@ -154,6 +155,7 @@ class OsintKit:
             print(self.menu())
             args = {}
             choice = inpt("Choice: ")
+            is_bug(self.methods[int(choice) - 1][0])
             if choice == "!q":
                 break
             elif choice == "!dc":

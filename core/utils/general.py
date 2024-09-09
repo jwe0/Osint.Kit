@@ -1,5 +1,5 @@
 import os, json
-from core.utils.logging import info
+from core.utils.logging import info, warning, error, inpt
 def ascii_art():
     art = """
 
@@ -36,6 +36,32 @@ def dump_json(json_data):
 def load_config():
     with open("core/config.json", "r") as f:
         return json.load(f)
+
+def load_bugs():
+    with open("core/deps/bugs.json", "r") as f:
+        return json.load(f)
+    
+def is_bug(module):
+    bugs = load_bugs()
+    modules = bugs.get("Modules")
+    if module in modules:
+        index = modules.index(module)
+        bug = bugs.get("Bugs")[index]
+        info("Found a bug!")
+        if bug.get("severity") == "low":
+            info("Title: " + bug.get("title"))
+            info("Description: " + bug.get("description"))
+            info("Severity: " + bug.get("severity"))
+        elif bug.get("severity") == "medium":
+            warning("Title: " + bug.get("title"))
+            warning("Description: " + bug.get("description"))
+            warning("Severity: " + bug.get("severity"))
+        elif bug.get("severity") == "high":
+            error("Title: " + bug.get("title"))
+            error("Description: " + bug.get("description"))
+            error("Severity: " + bug.get("severity"))
+        return
+
     
 def format_json(data):
     def json_format(data, dump={}):
@@ -49,3 +75,19 @@ def format_json(data):
         return dump
     dump = json_format(data)
     return dump
+
+def modify_config(args):
+    config = load_config()
+    keys = [key for key in config.get("API_KEYS").keys()]
+    for key, value in config.get("API_KEYS").items():
+        info(f"[{keys.index(key) + 1}] {key}")
+    choice = inpt("What API key do you want to modify? ")
+    while not choice:
+        choice = inpt("What API key do you want to modify? ")
+    choice = int(choice) - 1
+    info(f"Selected: {keys[choice]}")
+    new = inpt("New value: ")
+    config["API_KEYS"][keys[choice]] = new
+    with open("core/config.json", "w") as f:
+        json.dump(config, f, indent=4)
+    return {"message" : "success", "info" : {"choice" : keys[choice], "new" : new}}

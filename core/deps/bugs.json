@@ -1,0 +1,13 @@
+{
+    "Modules" : [
+        "People Lookup"
+    ],
+    "Bugs" : [
+        {
+            "module"      : "People Lookup",
+            "title"       : "F string issue",
+            "description" : "Issue meaning some versions of python return an error when using this module.",
+            "severity"    : "high"
+        }
+    ] 
+}
