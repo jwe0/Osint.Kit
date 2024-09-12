@@ -11,6 +11,8 @@ from core.other.hashcracker import hashcracker
 from core.other.cvesearcher import FindCVE_NVD_NIST
 from core.other.defaultrouter import router
 from core.other.maclookup import maclookup
+from core.other.userdb import userdb
+from core.other.csvdbreader import csvdbreader
 # IP modules
 from core.ip.iplookup import IpLookup
 from core.ip.ipfraud import IpFraud
@@ -76,7 +78,9 @@ class OsintKit:
             ("CVE Searcher",          ["search"],                           FindCVE_NVD_NIST,         "Searches NVD NIST for a CVE"),
             ("Router password",       ["model", "-obrand"],                 router,                   "Looks up the router password"),
             ("Mac Lookup",            ["mac"],                              maclookup,                "Looks up the supplied MAC address on various sites"),
-            ("Modify API keys",       [],                                   modify_config,            "Modifies the API keys")
+            ("Modify API keys",       [],                                   modify_config,            "Modifies the API keys"),
+            ("User DB",               [],                                   userdb,                   "User Database"),
+            ("CSV DB",                ["path"],                             csvdbreader,              "CSV Database")
         ]
 
     def menu(self):

@@ -6,3 +6,4 @@ __pycache__
 # Files
 config.json
 pyvenv.cfg
+userdb.json
