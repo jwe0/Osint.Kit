@@ -1,4 +1,5 @@
 import os, json
+from colorama import Fore
 from core.utils.logging import info, warning, error, inpt
 def ascii_art():
     art = """
@@ -91,3 +92,39 @@ def modify_config(args):
     with open("core/config.json", "w") as f:
         json.dump(config, f, indent=4)
     return {"message" : "success", "info" : {"choice" : keys[choice], "new" : new}}
+
+
+def columnit(array, size=10):
+    def style(array):
+        results = []
+        for ar in array:
+            results.append(f"[{array.index(ar) + 1}] {ar}")
+        return results
+    def pad(array, size=10):
+        while len(array) % size != 0:
+            array.append(" ")
+        return array
+    def gen_pad(array):
+        results = []
+        for ar in array:
+            pad = max(len(x) for x in ar)
+            sub = []
+            for x in ar:
+                sub.append(x.ljust(pad))
+            results.append(sub)
+        return results
+    array = pad(style(array), size)
+    result = []
+    message = ""
+    for i in range(0, len(array), size):
+        result.append(array[i:i + size])
+    sub = ""
+    result = gen_pad(result)
+    for i in range(len(result[0])):
+        for j in range(len(result)):
+            if j > 0:
+                sub += f" {Fore.LIGHTBLACK_EX}|{Fore.RESET} "
+            sub += result[j][i]
+        message += sub + "\n"
+        sub = ""
+    return message

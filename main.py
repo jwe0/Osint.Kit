@@ -2,7 +2,7 @@ import tls_client
 from colorama import Fore
 # Core modules
 from core.utils.logging import success, error, warning, inpt, info
-from core.utils.general import ascii_art, clear, dump_json, modify_config, is_bug
+from core.utils.general import ascii_art, clear, dump_json, modify_config, is_bug, columnit
 from core.utils.init import config
 # Other modules
 from core.other.ccchecker import Checker
@@ -20,6 +20,7 @@ from core.ip.isproxy import isproxy
 from core.ip.portscanner import portscan
 from core.ip.getserverbanner import getbanner
 from core.ip.isup import isup
+from core.ip.networkdeviceenum import netenum
 # Minecraft modules
 from core.minecraft.usernametoid import UsernameToId
 from core.minecraft.capeandskin import CapeAndSkin
@@ -73,6 +74,7 @@ class OsintKit:
             ("Port Scan",             ["IP", "-oendport"],                  portscan,                 "Scans the ports of an IP address"),
             ("Get Banner",            ["IP", "port"],                       getbanner,                "Gets the banner of an IP address"),
             ("Is up",                 ["target"],                           isup,                     "Checks if the target is up"),
+            ("Network devices",       ["base"],                             netenum,                  "Enumerates network devices"),
             ("Email Lookup",          ["email"],                            email_lookup,             "Looks up the supplied email address on various sites"),
             ("Hash Cracker",          ["hash", "algorithm", "-owordlist"],  hashcracker,              "Cracks the supplied hash"),
             ("CVE Searcher",          ["search"],                           FindCVE_NVD_NIST,         "Searches NVD NIST for a CVE"),
@@ -85,71 +87,8 @@ class OsintKit:
 
     def menu(self):
         warning("OSINT Kit")
-        index_split = 10
-        def format_msg(message):
-            message = []
-            prog = 0
-            total = 0
-            sub_msg = []
-            for method in self.methods:
-                sub_msg.append(f"[{str(self.methods.index(method) + 1)}] {method[0]}")
-                prog += 1
-                if prog == index_split:
-                    message.append(sub_msg)
-                    sub_msg = []
-                    total += prog
-                    prog = 0
-            sub_msg = []
-            for method in self.methods[total:]:
-                sub_msg.append(f"[{str(self.methods.index(method) + 1)}] {method[0]}")
-            message.append(sub_msg)
-            return message
-
-        def append_fix(message):
-            max_length = max(len(sublist) for sublist in message)
-            for i in range(len(message)):
-                if len(message[i]) < max_length:
-                    message[i].extend([""] * (max_length - len(message[i])))
-            return message
-
-        def paddings(message):
-            padding = []
-            for i in range(len(message)):
-                padding.append(max(len(sublist) for sublist in message[i]))
-            return padding
-
-        def format(message):
-            final = []
-            padding = paddings(message)
-            max_length = max(len(sublist) for sublist in message)
-
-            for i in range(max_length):
-                sub = []
-                for j in range(len(message)):
-                    if i < len(message[j]):
-                        sub.append(message[j][i] + " " * (padding[j] - len(message[j][i])))
-                    else:
-                        sub.append("")
-                final.append(sub)
-            
-            return final
-        def make_header(padding):
-            header = []
-            for pad in padding:
-                sub = "+"
-                for i in range(pad + 2):
-                    sub += f"{Fore.LIGHTBLACK_EX}-{Fore.RESET}"
-                header.append(sub)
-            header.append("+")
-            return header
-        
-        message = ""
-        msg = append_fix(format_msg(self.methods))
-        columns = format(msg)
-        message += "\n"
-        for col in columns: 
-            message += f" {Fore.LIGHTBLACK_EX}|{Fore.RESET} ".join(col) + f" \n"
-        return message
+        array = [method[0] for method in self.methods]
+        return columnit(array)
 
     def main(self):
         config()

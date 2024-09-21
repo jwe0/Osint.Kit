@@ -1,6 +1,7 @@
 {
     "Modules" : [
-        "People Lookup"
+        "People Lookup",
+        "Network devices"
     ],
     "Bugs" : [
         {
@@ -8,6 +9,12 @@
             "title"       : "F string issue",
             "description" : "Issue meaning some versions of python return an error when using this module.",
             "severity"    : "high"
+        },
+        {
+            "module"      : "Network devices",
+            "title"       : "Linux sudo venv",
+            "description" : "On linux you must run scapy with sudo so please run 'sudo ./env/bin/python3 main.py' when using this module.",
+            "severity"    : "low"
         }
     ] 
 }
