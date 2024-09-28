@@ -128,3 +128,15 @@ def columnit(array, size=10):
         message += sub + "\n"
         sub = ""
     return message
+
+def credits():
+    msg = """
+[!] /jwe0
+[-] Wassup, my name is Josh and I am the creator and lead developer of this project.
+[-] I developed this product in september 2024 because when performing OSINT I had to constantly
+[-] go out to different tool sites and download a bunch of repositories so I decided to put all
+[-] of those tools into one piece of software for you to enjoy
+[=] github.com/jwe0
+[=] jwe0.xyz
+"""
+    print(msg)

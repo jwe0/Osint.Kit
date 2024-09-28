@@ -2,7 +2,7 @@ import tls_client
 from colorama import Fore
 # Core modules
 from core.utils.logging import success, error, warning, inpt, info
-from core.utils.general import ascii_art, clear, dump_json, modify_config, is_bug, columnit
+from core.utils.general import ascii_art, clear, dump_json, modify_config, is_bug, columnit, credits
 from core.utils.init import config
 # Other modules
 from core.other.ccchecker import Checker
@@ -98,17 +98,21 @@ class OsintKit:
             print(self.menu())
             args = {}
             choice = inpt("Choice: ")
-            is_bug(self.methods[int(choice) - 1][0])
             if choice == "!q":
                 break
             elif choice == "!dc":
                 info("https://discord.gg/Pd9HkP7b")
                 inpt("Press enter to continue...")
                 continue
-            elif choice not in [str(i) for i in range(len(self.methods) + 1)]:
+            elif choice == "!c":
+                credits()
+                inpt("Press enter to continue...")
+                continue
+            elif not choice.isdigit() or not (0 <= int(choice) < len(self.methods) + 1):
                 error("Invalid choice")
                 inpt("Press enter to continue...")
                 continue
+            is_bug(self.methods[int(choice) - 1][0])
             method = self.methods[int(choice) - 1]
             warning(f"{method[0]} Arguments...")
             for arg in method[1]:

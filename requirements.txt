@@ -7,6 +7,7 @@ dnspython==2.6.1
 phonenumbers==8.13.44
 pycparser==2.22
 pytz==2024.1
+scapy==2.5.0
 soupsieve==2.6
 tls-client==1.0.1
 typing_extensions==4.12.2
